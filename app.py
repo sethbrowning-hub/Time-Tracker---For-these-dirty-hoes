@@ -47,8 +47,7 @@ with col1:
         if val > 80: return 'background-color: #ffa500' # Orange
         return 'background-color: #28a745; color: white' # Green
 
-    st.dataframe(df_staff.style.applymap(color_bars, subset=['Utilization %']).format(precision=1))
-
+st.dataframe(df_staff.style.map(color_bars, subset=['Utilization %']).format(precision=1))
 with col2:
     st.subheader("Strategic Insights")
     overloaded = df_staff[df_staff['Utilization %'] > 100]
